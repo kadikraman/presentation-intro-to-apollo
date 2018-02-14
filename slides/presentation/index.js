@@ -3,7 +3,7 @@ import React from 'react';
 import deepmerge from 'deepmerge';
 import createTheme from 'spectacle/lib/themes/default';
 import createCustomTheme from 'spectacle-theme-nova';
-import { Deck, Heading, Slide, Text, CodePane, Image } from 'spectacle';
+import { Deck, Heading, Slide, CodePane, Image } from 'spectacle';
 import orangeSrc from '../assets/orange.jpg';
 
 const theme = deepmerge(createTheme(), createCustomTheme());
@@ -16,12 +16,12 @@ export default class Presentation extends React.Component {
           <Heading size={1} fit lineHeight={1} textColor="heading">
             Getting started with Apollo GraphQL
           </Heading>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} bold>
+          <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
             an optinionated end to end journey with
-          </Text>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} bold>
+          </Heading>
+          <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
             with Node.js and React
-          </Text>
+          </Heading>
         </Slide>
         <Slide>
           <Heading size={1} fit lineHeight={1} textColor="heading">
@@ -32,35 +32,35 @@ export default class Presentation extends React.Component {
           <Heading size={2} textColor="heading">
             Apollo
           </Heading>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} bold>
+          <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
             Industry leader in GraphQL tooling
-          </Text>
+          </Heading>
         </Slide>
         <Slide>
           <Heading size={2} textColor="heading">
             Node.js
           </Heading>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} bold>
-            Everyone who writes frontend code will be able to use it
-          </Text>
+          <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+            JavaScripts all the way down
+          </Heading>
         </Slide>
         <Slide>
           <Heading size={2}>React</Heading>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} bold>
+          <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
             Arguably the best UI framework
-          </Text>
+          </Heading>
         </Slide>
         <Slide>
           <Heading size={2}>End to end</Heading>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} bold>
+          <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
             See how ALL the pieces fit together
-          </Text>
+          </Heading>
         </Slide>
         <Slide>
           <Heading size={2}>Optinionated</Heading>
-          <Text margin="10px 0 40px 0" textColor="tertiary" size={1} bold>
+          <Heading margin="10px 0 40px 0" textColor="tertiary" size={4} bold>
             There's many ways to peel an orange. Here's how I would do it.
-          </Text>
+          </Heading>
           <Image src={orangeSrc} />
         </Slide>
         <Slide>
