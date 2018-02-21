@@ -14,6 +14,7 @@ import {
   Notes,
 } from 'spectacle';
 import orangeSrc from '../assets/orange.jpg';
+import restVsGraphqlSrc from '../assets/restVsGraphql.png';
 
 const theme = deepmerge(createTheme(), createCustomTheme());
 
@@ -29,20 +30,27 @@ const MediumHeading = ({ children, ...props }: any) => (
   </Heading>
 );
 
+const Text = ({ children, ...props }: any) => (
+  <Heading margin="10px 0 0" textColor="tertiary" size={4} {...props}>
+    {children}
+  </Heading>
+);
+
 export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={['zoom']} transitionDuration={500} theme={theme}>
         <Slide>
+          <Notes>A rather intense heading</Notes>
           <LargeHeading fit lineHeight={1}>
             Getting started with Apollo GraphQL
           </LargeHeading>
-          <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+          <Text>
             an optinionated end to end journey with
-          </Heading>
-          <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+          </Text>
+          <Text>
             with Node.js and React
-          </Heading>
+          </Text>
         </Slide>
         <Slide>
           <LargeHeading fit lineHeight={1}>
@@ -51,33 +59,33 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide>
           <MediumHeading>Apollo</MediumHeading>
-          <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+          <Text>
             Industry leader in GraphQL tooling
-          </Heading>
+          </Text>
         </Slide>
         <Slide>
           <MediumHeading>Node.js</MediumHeading>
-          <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+          <Text>
             JavaScripts all the way down
-          </Heading>
+          </Text>
         </Slide>
         <Slide>
           <Heading size={2}>React</Heading>
-          <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+          <Text>
             My favourite UI framework
-          </Heading>
+          </Text>
         </Slide>
         <Slide>
           <Heading size={2}>End to end</Heading>
-          <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+          <Text>
             See how ALL the pieces fit together
-          </Heading>
+          </Text>
         </Slide>
         <Slide>
           <Heading size={2}>Optinionated</Heading>
-          <Heading margin="10px 0 40px 0" textColor="tertiary" size={4} bold>
+          <Text>
             There's many ways to peel an orange. Here's how I would do it.
-          </Heading>
+          </Text>
           <Image src={orangeSrc} />
         </Slide>
         <Slide>
@@ -121,30 +129,30 @@ export default class Presentation extends React.Component {
         <Slide>
           <Heading size={2}>Agenda</Heading>
           <div style={{ textAlign: 'left' }}>
-            <Heading margin="10px 0 0" textColor="heading" size={3} bold>
+            <Text textColor="heading" size={3}>
               1. Build a GraphQL server
-            </Heading>
-            <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+            </Text>
+            <Text>
               graphql
-            </Heading>
-            <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+            </Text>
+            <Text>
               graphql-tools
-            </Heading>
-            <Heading margin="10px 0 20px 0" textColor="tertiary" size={4} bold>
+            </Text>
+            <Text margin="10px 0 20px 0">
               apollo-server-express
-            </Heading>
-            <Heading margin="10px 0 0" textColor="heading" size={3} bold>
+            </Text>
+            <Text textColor="heading" size={3}>
               2. Build a frontend to consume it
-            </Heading>
-            <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+            </Text>
+            <Text>
               graphql
-            </Heading>
-            <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+            </Text>
+            <Text>
               react-apollo
-            </Heading>
-            <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+            </Text>
+            <Text>
               graphql-tag
-            </Heading>
+            </Text>
           </div>
         </Slide>
         <Slide>
@@ -172,11 +180,14 @@ export default class Presentation extends React.Component {
             source={require('raw-loader!../assets/restGet.example')}
           />
         </Slide>
-        <Slide>
+        <Slide bgColor="white">
           <CodePane
             lang="json"
             source={require('raw-loader!../assets/restGetLonger.example')}
           />
+        </Slide>
+        <Slide>
+          <Image src={restVsGraphqlSrc} />
         </Slide>
       </Deck>
     );
