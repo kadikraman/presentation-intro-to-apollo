@@ -1,8 +1,8 @@
 type Query {
-  me: User
+  me: Profile
 }
 
-type User {
+type Profile {
   id: ID
   name: String
 }

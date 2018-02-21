@@ -3,19 +3,40 @@ import React from 'react';
 import deepmerge from 'deepmerge';
 import createTheme from 'spectacle/lib/themes/default';
 import createCustomTheme from 'spectacle-theme-nova';
-import { Deck, Heading, Slide, CodePane, Image } from 'spectacle';
+import {
+  Deck,
+  Heading,
+  Slide,
+  CodePane,
+  Image,
+  Quote,
+  Cite,
+  Notes,
+} from 'spectacle';
 import orangeSrc from '../assets/orange.jpg';
 
 const theme = deepmerge(createTheme(), createCustomTheme());
+
+const LargeHeading = ({ children, ...props }: any) => (
+  <Heading size={1} textColor="heading" {...props}>
+    {children}
+  </Heading>
+);
+
+const MediumHeading = ({ children, ...props }: any) => (
+  <Heading size={2} textColor="heading" {...props}>
+    {children}
+  </Heading>
+);
 
 export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={['zoom']} transitionDuration={500} theme={theme}>
         <Slide>
-          <Heading size={1} fit lineHeight={1} textColor="heading">
+          <LargeHeading fit lineHeight={1}>
             Getting started with Apollo GraphQL
-          </Heading>
+          </LargeHeading>
           <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
             an optinionated end to end journey with
           </Heading>
@@ -24,22 +45,18 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
         <Slide>
-          <Heading size={1} fit lineHeight={1} textColor="heading">
+          <LargeHeading fit lineHeight={1}>
             Getting started with GraphQL
-          </Heading>
+          </LargeHeading>
         </Slide>
         <Slide>
-          <Heading size={2} textColor="heading">
-            Apollo
-          </Heading>
+          <MediumHeading>Apollo</MediumHeading>
           <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
             Industry leader in GraphQL tooling
           </Heading>
         </Slide>
         <Slide>
-          <Heading size={2} textColor="heading">
-            Node.js
-          </Heading>
+          <MediumHeading>Node.js</MediumHeading>
           <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
             JavaScripts all the way down
           </Heading>
@@ -47,7 +64,7 @@ export default class Presentation extends React.Component {
         <Slide>
           <Heading size={2}>React</Heading>
           <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
-            Arguably the best UI framework
+            My favourite UI framework
           </Heading>
         </Slide>
         <Slide>
@@ -100,6 +117,66 @@ export default class Presentation extends React.Component {
               source={require('raw-loader!../assets/graphqlExampleResult.example')}
             />
           </div>
+        </Slide>
+        <Slide>
+          <Heading size={2}>Agenda</Heading>
+          <div style={{ textAlign: 'left' }}>
+            <Heading margin="10px 0 0" textColor="heading" size={3} bold>
+              1. Build a GraphQL server
+            </Heading>
+            <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+              graphql
+            </Heading>
+            <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+              graphql-tools
+            </Heading>
+            <Heading margin="10px 0 20px 0" textColor="tertiary" size={4} bold>
+              apollo-server-express
+            </Heading>
+            <Heading margin="10px 0 0" textColor="heading" size={3} bold>
+              2. Build a frontend to consume it
+            </Heading>
+            <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+              graphql
+            </Heading>
+            <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+              react-apollo
+            </Heading>
+            <Heading margin="10px 0 0" textColor="tertiary" size={4} bold>
+              graphql-tag
+            </Heading>
+          </div>
+        </Slide>
+        <Slide>
+          <Notes>Such test note</Notes>
+          <Heading size={2}>GraphQL vs REST</Heading>
+        </Slide>
+        <Slide>
+          <Quote>GraphQL and REST are not so different after all</Quote>
+          <Cite>
+            Sashko Stubailo (open source lead at @apollographql and @meteorjs)
+          </Cite>
+        </Slide>
+        <Slide>
+          <Quote>
+            GraphQL has some small changes that make a big difference to the
+            developer experience of building and consuming an API
+          </Quote>
+          <Cite>
+            Sashko Stubailo (open source lead at @apollographql and @meteorjs)
+          </Cite>
+        </Slide>
+        <Slide>
+          <CodePane
+            lang="json"
+            source={require('raw-loader!../assets/restGet.example')}
+          />
+        </Slide>
+        <Slide>
+          <CodePane
+            lang="json"
+            source={require('raw-loader!../assets/restGetLonger.example')}
+          />
         </Slide>
       </Deck>
     );

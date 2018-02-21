@@ -1,0 +1,17 @@
+GET /movies/1
+
+{
+  "title": "The Greatest Showman",
+  "director": 1
+  // ... more fields
+}
+
+
+GET /directors/1
+
+{
+  "firstName": "Michael",
+  "lastName": "Gracey"
+  // ... more fields
+}
+
