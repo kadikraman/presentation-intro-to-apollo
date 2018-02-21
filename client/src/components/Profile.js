@@ -8,6 +8,7 @@ import {
   Button,
   FormGroup,
 } from 'react-bootstrap';
+import { Formik } from 'formik';
 
 const profileQuery = gql`
   {
@@ -38,54 +39,75 @@ const Profile = ({ data: { loading, error, me } }) => {
           <Panel.Heading>Edit your profile</Panel.Heading>
 
           <Panel.Body>
-            <form>
-              <FormGroup>
-                <ControlLabel>First name</ControlLabel>
-                <FormControl
-                  type="text"
-                  value={me.firstName}
-                  placeholder="First name"
-                  onChange={this.handleChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <ControlLabel>Last name</ControlLabel>
-                <FormControl
-                  type="text"
-                  value={me.lastName}
-                  placeholder="Last name"
-                  onChange={this.handleChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <ControlLabel>Occupation</ControlLabel>
-                <FormControl
-                  type="text"
-                  value={me.occupation}
-                  placeholder="Occupation"
-                  onChange={this.handleChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <ControlLabel>Company</ControlLabel>
-                <FormControl
-                  type="text"
-                  value={me.company}
-                  placeholder="Company"
-                  onChange={this.handleChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <ControlLabel>Number of pets</ControlLabel>
-                <FormControl
-                  type="number"
-                  value={me.numberOfPets}
-                  placeholder="Number of pets"
-                  onChange={this.handleChange}
-                />
-              </FormGroup>
-              <Button bsStyle="primary">Save</Button>
-            </form>
+            <Formik
+              initialValues={me}
+              validate={() => {}}
+              onSubmit={() => {}}
+              render={({
+                dirty,
+                values,
+                handleChange,
+                handleSubmit,
+                errors,
+                touched,
+              }) => (
+                <form onSubmit={handleSubmit}>
+                  <FormGroup>
+                    <ControlLabel>First name</ControlLabel>
+                    <FormControl
+                      type="text"
+                      name="firstName"
+                      value={values.firstName}
+                      placeholder="First name"
+                      onChange={handleChange}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>Last name</ControlLabel>
+                    <FormControl
+                      type="text"
+                      name="lastName"
+                      value={values.lastName}
+                      placeholder="Last name"
+                      onChange={handleChange}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>Occupation</ControlLabel>
+                    <FormControl
+                      type="text"
+                      name="occupation"
+                      value={values.occupation}
+                      placeholder="Occupation"
+                      onChange={handleChange}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>Company</ControlLabel>
+                    <FormControl
+                      type="text"
+                      name="company"
+                      value={values.company}
+                      placeholder="Company"
+                      onChange={handleChange}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>Number of pets</ControlLabel>
+                    <FormControl
+                      type="number"
+                      name="numberOfPets"
+                      value={values.numberOfPets}
+                      placeholder="Number of pets"
+                      onChange={handleChange}
+                    />
+                  </FormGroup>
+                  <Button bsStyle="primary" disabled={!dirty}>
+                    Save
+                  </Button>
+                </form>
+              )}
+            />
           </Panel.Body>
         </Panel>
       </div>

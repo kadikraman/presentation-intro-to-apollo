@@ -16,5 +16,4 @@ type Query {
 }
 `;
 
-const schema = makeExecutableSchema({ typeDefs, resolvers });
-export { schema };
+export default makeExecutableSchema({ typeDefs, resolvers });
