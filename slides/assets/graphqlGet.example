@@ -3,8 +3,6 @@ GET /graphql?query={ book(id: "1") { title, author { firstName } } }
 {
   "title": "The Greatest Showman",
   "director": {
-    "firstName": "Michael",
-    "lastName": "Gracey"
+    "firstName": "Michael"
   }
 }
-
